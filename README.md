@@ -28,6 +28,6 @@ To run all modules, navigate to TestTask directory and run on command prompt :
 
 ## Reporting
 
-Reports for API test run module are written into `/test-output/{Today's Date}/` directories after a successful run.
+Reports for API test run module are written into `/Reports/{Today's Date}/` directories after a successful run.
 
 API acceptance tests result in a HTML report for each class file present in package `/com.testTask.app.api/`.
