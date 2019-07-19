@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Properties;
+
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -22,6 +24,9 @@ public class Util extends TestSetup {
 	static XSSFWorkbook workbook = null;
 	static XSSFSheet sheet = null;
 	static String pathName = System.getProperty("user.dir") + "/TestData/";
+	static Properties props = new Properties();
+	static String strFileName = "config.properties";
+	static String strValue;
 
 	/**
 	 * Function to create folder.
@@ -147,6 +152,39 @@ public class Util extends TestSetup {
 			throw new FrameworkException("Unknown Exception while reading " + fileName + "&" + sheetName + "---"
 					+ e.getClass() + "---" + e.getMessage());
 		}
+	}
+
+	/**
+	 * Function to read config parameter from Configuration file.
+	 * 
+	 * @param strKey
+	 *            - Configuration name
+	 * @return - string value with configuration name, returns null in case
+	 *         configuration parameter not found. @ in case of error.
+	 * @throws FrameworkException
+	 */
+	public static String getProperty(String strKey) throws FrameworkException {
+		try {
+			File f = new File(strFileName);
+			if (f.exists()) {
+				FileInputStream in = new FileInputStream(f);
+				props.load(in);
+				strValue = props.getProperty(strKey);
+				in.close();
+			} else
+				throw new FrameworkException("Configuration File not found.");
+		} catch (Exception e) {
+			throw new FrameworkException("Unknown Error encountered while reading " + strKey
+					+ " from configuration file. ---" + e.getClass() + "---" + e.getMessage());
+		}
+		if (strValue != null) {
+			return strValue;
+		} else {
+
+			throw new FrameworkException(
+					"Value '" + strKey + "' not configured in config file. Contact automation team");
+		}
+
 	}
 
 }

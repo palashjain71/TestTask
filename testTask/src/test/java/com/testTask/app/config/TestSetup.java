@@ -12,8 +12,8 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.testTask.app.util.FrameworkException;
 import com.testTask.app.util.Util;
-import com.testTask.data.GlobalTestData;
 
 public class TestSetup {
 
@@ -37,13 +37,11 @@ public class TestSetup {
 	}
 
 	@BeforeMethod
-	public void createTest(ITestResult contextContext) {
+	public void createTest(ITestResult contextContext) throws FrameworkException {
 		test = extent.createTest(contextContext.getMethod().getMethodName(),
 				contextContext.getMethod().getMethodName());
 		test.info(MarkupHelper.createLabel("Execution started", ExtentColor.ORANGE));
-		
-		test.info("BaseURL -- > " + GlobalTestData.BaseURI);
-		
+		test.info("BaseURL -- > " + Util.getProperty("BaseURI"));
 	}
 
 	@AfterMethod

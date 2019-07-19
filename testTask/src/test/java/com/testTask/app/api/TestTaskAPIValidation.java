@@ -8,7 +8,7 @@ import com.testTask.app.util.FrameworkException;
 public class TestTaskAPIValidation extends LogicComponents {
 
 	@Test(dataProvider = "testAPIData", dataProviderClass = com.testTask.data.TestData.class)
-	public void verifyTestAPI(String categoriesValue, String catalogueValue, String valuesToCompare) {
+	public void verifyCategoriesAPI(String categoriesValue, String catalogueValue, String valuesToCompare) {
 		try {
 			String response = categories(categoriesValue, catalogueValue);
 			test.info("Response --> " + response);
