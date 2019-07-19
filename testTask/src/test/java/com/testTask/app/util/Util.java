@@ -68,14 +68,14 @@ public class Util extends TestSetup {
 				break;
 			}
 			if (valueMatchFlag) {
-				test.pass(fieldToBeVerify + " present and match --> Expected " + expectedValue + "  Actual --> "
-						+ js.get(fieldToBeVerify).toString());
+				test.pass(fieldToBeVerify + " tag present and match criteria " + condition + " --> Expected "
+						+ expectedValue + "  Actual --> " + js.get(fieldToBeVerify).toString());
 			} else {
-				test.fail(fieldToBeVerify + " present but not match --> Expected " + expectedValue + "  Actual --> "
-						+ js.get(fieldToBeVerify).toString());
+				throw new FrameworkException(fieldToBeVerify + " tag present but not match criteria " + condition
+						+ "  --> Expected " + expectedValue + "  Actual --> " + js.get(fieldToBeVerify).toString());
 			}
 		} catch (NullPointerException e) {
-			test.fail("Field is not present in response JSON " + fieldToBeVerify);
+			throw new FrameworkException("Field is not present in response JSON " + fieldToBeVerify);
 		}
 	}
 
