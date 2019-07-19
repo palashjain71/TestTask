@@ -21,7 +21,7 @@ public class TestSetup {
 	public static ExtentReports extent;
 	public static ExtentHtmlReporter htmlReporter;
 	public static String systemDir = System.getProperty("user.dir");
-	public static String resultFolderPath = systemDir + "\\test-output" + "\\" + Util.todaysDate() + "\\";
+	public static String resultFolderPath = systemDir + "\\Reports" + "\\" + Util.todaysDate() + "\\";
 
 	@BeforeSuite
 	public void initializeWebdriver(ITestContext contextContext) {
