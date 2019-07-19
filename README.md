@@ -2,6 +2,9 @@
 
 TestTask is a TestNG based test automation framework for API acceptance testing using RestAssured jars.
  
+##Project Location
+
+ - Git URI : https://github.com/palashjain71/TestTask.git
 
 ## Requirements
 
@@ -22,12 +25,12 @@ In order to utilise this project you need to have the following installed locall
 
 ## Usage
 
-To run all modules, navigate to TestTask directory and run on command prompt :
+To run all modules, navigate to your TestTask directory and run on command prompt :
 
  `mvn clean install`
 
 ## Reporting
 
-Reports for API test run module are written into `/Reports/{Today's Date}/` directories after a successful run.
+Reports for API test run module are written into `/Reports/{Today's Date}/` directories after a successful/failure run.
 
 API acceptance tests result in a HTML report for each class file present in package `/com.testTask.app.api/`.
