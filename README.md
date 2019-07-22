@@ -2,7 +2,7 @@
 
 TestTask is a TestNG based test automation framework for API acceptance testing using RestAssured jars.
  
-##Project Location
+## Project Location
 
  - Git URI : https://github.com/palashjain71/TestTask.git
 
